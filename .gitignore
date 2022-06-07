@@ -1,0 +1,10 @@
+.DS_Store
+.idea
+.vscode
+*.swp
+*/*.swp
+*.o
+*/*.o
+*.a
+*.gch
+*.out
