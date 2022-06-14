@@ -2,7 +2,8 @@ NAME = server
 
 NAME2 = client
 
-SRCS_SV =	server.c
+SRCS_SV =	server.c\
+			base_to_base.c
 
 SRCS_CL =	client.c\
 			utils.c

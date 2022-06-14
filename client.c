@@ -6,7 +6,7 @@
 /*   By: bcarreir <bcarreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 23:21:45 by bcarreir          #+#    #+#             */
-/*   Updated: 2022/06/07 18:07:35 by bcarreir         ###   ########.fr       */
+/*   Updated: 2022/06/08 18:45:45 by bcarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	main(int ac, char **av)
 		byte = ft_itoa_bin(av[2][i]);
 		if (!byte)
 			return (1);
+		if (!av[2][i + 1])
+			byte[0] = '1';
 		j = -1;
 		while (byte[++j])
 		{
@@ -43,11 +45,10 @@ int	main(int ac, char **av)
 				kill(srv_pid, SIGUSR2);
 				write(1, "0", 1);
 			}
-			usleep(50);
+			usleep(500);
 		}
-			write(1, "C", 1);
+		ft_printf(" %d\n", j);
 		free(byte);
-		//send SIGNUSR depending on bit
 	}
 	return (0);
 }

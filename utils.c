@@ -6,7 +6,7 @@
 /*   By: bcarreir <bcarreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 15:16:40 by bcarreir          #+#    #+#             */
-/*   Updated: 2022/06/07 14:52:56 by bcarreir         ###   ########.fr       */
+/*   Updated: 2022/06/08 17:11:42 by bcarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_itoa_bin(int nbr)
 	byte = ft_calloc(9, sizeof(char));
 	if (!byte)
 		return (NULL);
-	byte[8] = 0;
+	ft_memset(byte, '0', 8);
 	byte = ft_putnbr(nbr, byte, 8);
 	i = -1;
 	while (++i < 8)
