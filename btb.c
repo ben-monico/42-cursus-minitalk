@@ -1,73 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   base_to_base.c                                     :+:      :+:    :+:   */
+/*   btb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcarreir <bcarreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 18:39:01 by bcarreir          #+#    #+#             */
-/*   Updated: 2022/06/08 18:39:04 by bcarreir         ###   ########.fr       */
+/*   Updated: 2022/06/15 17:02:23 by bcarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-char	*clean_output(int size, char *output)
-{
-	char	*clean_output;
-	int		i;
-
-	i = 0;
-	clean_output = malloc(size);
-	while (i <= size)
-	{
-		clean_output[i] = output[1023 - size + i];
-		i++;
-	}
-	return (clean_output);
-}
-
-char	*convert_write(char *base, long nbr_l, int base_size)
-{
-	int		index;
-	char	output[1024];
-	int		size;
-	int		neg;
-
-	neg = 0;
-	size = 0;
-	index = 1023;
-	if (nbr_l < 0)
-	{
-		neg = 1;
-		nbr_l = -nbr_l;
-	}
-	while (nbr_l != 0)
-	{
-		output[index] = base[nbr_l % base_size];
-		index--;
-		nbr_l = nbr_l / base_size;
-	}
-	if ( neg == 1)
-		output[index] = '-';
-	else
-		index++;
-	size = 1023 - index;
-	return (clean_output(size, output));
-}
-
-char	*ft_putnbr_l_base(long nbr, char *base)
-{
-	int		base_size;
-
-	base_size = 0;
-	while (base[base_size] != '\0')
-		base_size++;
-
-	return (convert_write(base, nbr, base_size));
-}
-
-int	ft_r_pow(int nb,int power)
+int	ft_r_pow(int nb, int power)
 {
 	if (power < 0)
 		return (0);
@@ -79,13 +24,13 @@ int	ft_r_pow(int nb,int power)
 		return (nb);
 	}
 	else
-		return(nb);
+		return (nb);
 }
 
-long get_index_base(char *base, char value)
+long	get_index_base(char *base, char value)
 {
-	int	i;
 	long	result;
+	int		i;
 
 	i = 0;
 	while (base[i] != '\0')
@@ -121,10 +66,11 @@ long	convert_to_decimal(char *nbr, char *base_from)
 	return (result);
 }
 
-char	*ft_convert_base(char *nbr,char *base_from,char *base_to)
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	int		neg;
 	char	*str;
+	long	a;
+	int		neg;
 
 	if (nbr[0] == '-')
 	{
@@ -133,9 +79,9 @@ char	*ft_convert_base(char *nbr,char *base_from,char *base_to)
 	}
 	else
 		neg = 0;
-	long a = convert_to_decimal(nbr, base_from);
+	a = convert_to_decimal(nbr, base_from);
 	if (neg % 2 != 0)
 		a = -a;
 	str = ft_putnbr_l_base(a, base_to);
-	return(str);
+	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: bcarreir <bcarreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:52:08 by bcarreir          #+#    #+#             */
-/*   Updated: 2022/02/18 14:53:32 by bcarreir         ###   ########.fr       */
+/*   Updated: 2022/06/15 15:32:29 by bcarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *s)
 	int	c;
 
 	c = 0;
+	if (!s)
+		return (c);
 	while (s[c])
 		c++;
 	return (c);

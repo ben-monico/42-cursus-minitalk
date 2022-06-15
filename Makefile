@@ -3,10 +3,10 @@ NAME = server
 NAME2 = client
 
 SRCS_SV =	server.c\
-			base_to_base.c
+			btb.c\
+			btb_conv.c
 
-SRCS_CL =	client.c\
-			utils.c
+SRCS_CL =	client.c
 
 OBJS_SV = $(SRCS_SV:.c=.o)
 
